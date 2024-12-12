@@ -59,7 +59,7 @@ class PenggunaController extends Controller
       $this->model->create([
         'user_email' => $request->email,
         'user_fullname' => $request->fullname,
-        'user_phone' => 0,
+        'user_phone' => $request->no_hp,
         'password' => Hash::make($request->password)
       ]);
 
@@ -108,6 +108,7 @@ class PenggunaController extends Controller
       $user->update([
         'user_email' => $request->email,
         'user_fullname' => $request->fullname,
+        'user_phone' => $request->no_hp,
       ]);
 
       $result = true;

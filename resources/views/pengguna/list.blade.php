@@ -2,6 +2,7 @@
 
 @section('style')
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+  {{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/js/dataTables.tailwindcss.js"> --}}
 @endsection
 
 @section('content')
@@ -18,6 +19,7 @@
           <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">No</th>
           <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Email</th>
           <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Nama Lengkap</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">No HP</th>
           <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Aksi</th>
         </tr>
       </thead>
@@ -31,6 +33,8 @@
 @section('script')
 <!-- DataTables JS -->
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+{{-- <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script> --}}
 
 <script type="text/javascript">
 var table
@@ -38,6 +42,7 @@ $(document).ready(function () {
   table = $('#example').DataTable({
     processing: true,
     serverSide: true,
+    bLengthChange: false,
     ajax: {
       url: `{{ url('/pengguna/search') }}`,
       type: "post",
@@ -61,6 +66,11 @@ $(document).ready(function () {
       },
       {
         data: 'user_fullname',
+        sortable: false,
+        searchable: false,
+      },
+      {
+        data: 'user_phone',
         sortable: false,
         searchable: false,
       },

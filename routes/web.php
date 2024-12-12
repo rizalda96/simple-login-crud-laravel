@@ -4,7 +4,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenggunaController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['web', 'auth'])->get('/', [HomeController::class, 'index'])->name('home');
 
 // Route::get('/dashboard', function () {

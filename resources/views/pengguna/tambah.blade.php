@@ -37,6 +37,21 @@
           </div>
         </div>
         <div class="">
+          <label for="no_hp" class="block text-sm/6 font-medium text-gray-900">No HP</label>
+          <div class="mt-2">
+            <div class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+              <input
+                type="text"
+                name="no_hp"
+                id="no_hp"
+                class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
+                placeholder="No Hp"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div class="">
           <label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
           <div class="mt-2">
             <div class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
@@ -90,6 +105,7 @@ $(document).ready(function () {
     let email = $('#email').val();
     let password = $('#password').val();
     let conf_password = $('#confirm_password').val();
+    let no_hp = $('#no_hp').val();
 
     if (fullname <= 0 || fullname == '') {
       return alert('Fullname Tidak Boleh Kosong');
@@ -97,6 +113,10 @@ $(document).ready(function () {
 
     if (email <= 0 || email == '') {
       return alert('Email Tidak Boleh Kosong');
+    }
+
+    if (no_hp <= 0 || no_hp == '') {
+      return alert('No Hp Tidak Boleh Kosong');
     }
 
     if (password <= 0 || password == '') {
@@ -118,6 +138,7 @@ $(document).ready(function () {
         fullname: fullname,
         email: email,
         password: password,
+        no_hp: no_hp,
       },
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
